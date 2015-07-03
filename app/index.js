@@ -22,7 +22,7 @@ var ComponentGenerator = yeoman.generators.NamedBase.extend({
 
   template: function () {
     this.copy('view.html', this.dirname + this.filename + '.html');
-    this.copy('view.html', this.dirname + this.filename + '.less');
+    this.copy('view.less', this.dirname + this.filename + '.less');
     this.copy('viewmodel' + this.codeFileExtension, this.dirname + this.filename + this.codeFileExtension);
   },
 
