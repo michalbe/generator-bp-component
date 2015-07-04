@@ -1,3 +1,3 @@
 # generator-bp-component
 
-bonjourpack generator
+bonjourpack component generator
