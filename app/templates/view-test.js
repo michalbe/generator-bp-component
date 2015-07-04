@@ -4,7 +4,7 @@ define(['knockout', 'components/<%= filename %>/<%= filename %>'], function(ko, 
   describe('<%= name %> view model test', function() {
 
     it('should set activePages to 1 when not defined', function() {
-      var instance = new DotsBarViewModel();
+      var instance = new <%= viewModelClassName %>();
       expect(1).toEqual(1);
     });
 
