@@ -1,3 +1,3 @@
-# generator-ko
+# generator-bp-component
 
-Generates a starting point for a Knockout application.
+bonjourpack generator
