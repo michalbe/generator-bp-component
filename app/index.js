@@ -44,6 +44,18 @@ var ComponentGenerator = yeoman.generators.NamedBase.extend({
         fs.writeFile(startupFile, newContents);
         this.log(chalk.green('   registered ') + chalk.white(this.filename) + chalk.green(' in ') + chalk.white(startupFile));
     });
+  },
+
+  addComponentLessRegistration: function() {
+    var startupFile = 'src/main.less';
+    readIfFileExists.call(this, startupFile, function(existingContents) {
+        var token = '// styles for components',
+            regex = new RegExp('^(\\s*)(' + token.replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, '\\$&') + ')', 'm'),
+            lineToAdd = '@import \'components/' + this.filename + '/' + this.filename + '.less\';',
+            newContents = existingContents.replace(regex, '$1' + lineToAdd + '\n$&');
+        fs.writeFile(startupFile, newContents);
+        this.log(chalk.green('   registered ') + chalk.white(this.filename) + chalk.green(' in ') + chalk.white(startupFile));
+    });
   }
 
 });
