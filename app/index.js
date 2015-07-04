@@ -23,7 +23,7 @@ var ComponentGenerator = yeoman.generators.NamedBase.extend({
   template: function () {
     this.copy('view.html', this.dirname + this.filename + '.html');
     this.copy('view.less', this.dirname + this.filename + '.less');
-    this.copy('view-test.js', 'src/' + this.filename + '-test.js');
+    this.copy('view-test.js', 'test/' + this.filename + '-test.js');
     this.copy('viewmodel' + this.codeFileExtension, this.dirname + this.filename + this.codeFileExtension);
   },
 
@@ -49,7 +49,7 @@ var ComponentGenerator = yeoman.generators.NamedBase.extend({
   addComponentLessRegistration: function() {
     var startupFile = 'src/main.less';
     readIfFileExists.call(this, startupFile, function(existingContents) {
-        var token = '// styles for components',
+        var token = '// [don\'t remove or edit this comment]',
             regex = new RegExp('^(\\s*)(' + token.replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, '\\$&') + ')', 'm'),
             lineToAdd = '@import \'components/' + this.filename + '/' + this.filename + '.less\';',
             newContents = existingContents.replace(regex, '$1' + lineToAdd + '\n$&');
